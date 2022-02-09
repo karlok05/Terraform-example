@@ -23,3 +23,18 @@ resource "azurerm_postgresql_database" "postgresqldb" {
   charset             = "UTF8"
   collation           = "English_United States.1252"
 }
+
+output "sql_connection_string" {
+  value = azurerm_postgresql_server.postgresql.fqdn
+}
+output "sql_db_name" {
+  value = azurerm_postgresql_database.postgresqldb.name
+}
+
+output "sql_pass" {
+  value = azurerm_postgresql_server.postgresql.administrator_login_password
+}
+
+output "sql_user" {
+ value = azurerm_postgresql_server.postgresql.administrator_login 
+}

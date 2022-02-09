@@ -23,6 +23,6 @@ resource "azurerm_app_service" "app_service" {
   connection_string {
     name  = "Database connection"
     type  = "PostgreSQL"
-    value = "Server=some-server.mydomain.com;Integrated Security=SSPI"
+    value = "Server=${var.sql_connection_string};Database=${var.sql_db_name};Uid=${var.sql_username};Pwd=${var.sql_pass}"
   }
 }
